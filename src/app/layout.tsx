@@ -20,8 +20,7 @@ export default function RootLayout({
     <html lang="ru">
       <head>
           <title> Задачи для всех</title>
-          <meta charset="UTF-8"/>
-          <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+          <meta charSet="UTF-8"/>
           <meta name="description" content=""/>
           <meta name="keywords" content=""/>
           <meta name="author" content="Alex"/>

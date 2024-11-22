@@ -1,0 +1,17 @@
+.item-parent {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 150px;
+}
+
+.item-1 {
+  background: red;
+}
+
+.item-2 {
+  background: green;
+}
+
+.item-3 {
+  background: yellow;
+}
