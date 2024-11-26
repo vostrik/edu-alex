@@ -1,0 +1,22 @@
+.container {
+  font-family: Arial, sans-serif;
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 25px;
+  margin-top: 25px;
+}
+
+.video, .task, .comments, .banner {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.banner {
+  background-color: #f0f8ff;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}

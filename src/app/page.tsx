@@ -7,19 +7,19 @@ import { About } from './components/About'
 import { Feature } from './components/Feature'
 import { Main } from './components/Main'
 import { Navigation } from './components/Navigation'
-import { FormTest } from './components/form-test/FormTest'
+import { Form } from './components/form/Form'
 
 export default function Home() {
   return (
     <>
       <Navigation />
+      <Form />
       <Main />
       <Feature />
       <About />
       <Team />
       <Courses />
       <Testimonial />
-      <FormTest />
       <Contract />
       <Footer />
     </>
