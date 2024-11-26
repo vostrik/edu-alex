@@ -1,0 +1,93 @@
+second page for education project 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Работа с видео</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        .video-block, .task-block, .comments-block, .banner-block {
+            border: 1px solid #ccc;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .banner-block {
+            background-color: #f0f8ff;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="app"></div>
+
+<script>
+    // Создание блоков
+    const app = document.getElementById('app');
+
+    // Блок с видео
+    const videoBlock = document.createElement('div');
+    videoBlock.className = 'video-block';
+    videoBlock.innerHTML = `
+        <video width="100%" controls>
+            <source src="your-video-url.mp4" type="video/mp4">
+            Ваш браузер не поддерживает тег видео.
+        </video>
+    `;
+    app.appendChild(videoBlock);
+
+    // Блок с заданием к видео
+    const taskBlock = document.createElement('div');
+    taskBlock.className = 'task-block';
+    taskBlock.innerHTML = `
+        <h2>Задание:</h2>
+        <p>Посмотрите видео и ответьте на вопросы ниже:</p>
+        <ul>
+            <li>Каково главное сообщение видео?</li>
+            <li>Что вам больше всего запомнилось?</li>
+        </ul>
+    `;
+    app.appendChild(taskBlock);
+
+    // Блок комментариев
+    const commentsBlock = document.createElement('div');
+    commentsBlock.className = 'comments-block';
+    commentsBlock.innerHTML = `
+        <h2>Комментарии:</h2>
+        <textarea rows="4" cols="50" placeholder="Введите ваш ответ "></textarea><br>
+        <button onclick="submitComment()">Отправить</button>
+        <div class="comment-section" id="comment-section"></div>
+    `;
+    app.appendChild(commentsBlock);
+
+    // Функция для отправки комментария
+    function submitComment() {
+        const textarea = commentsBlock.querySelector('textarea');
+        const commentSection = document.getElementById('comment-section');
+        const newComment = document.createElement('p');
+        newComment.innerHTML = `<strong>Вы:</strong> ${textarea.value}`;
+        commentSection.appendChild(newComment);
+        textarea.value = ''; // Очистить текстовое поле
+    }
+
+    // Блок баннера
+    const bannerBlock = document.createElement('div');
+    bannerBlock.className = 'banner-block';
+    bannerBlock.innerHTML = 'Оставайтесь с нами!';
+    app.appendChild(bannerBlock);
+</script>
+
+</body>
+</html>
