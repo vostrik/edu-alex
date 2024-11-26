@@ -1,15 +1,22 @@
 'use client'
 
+import { useState } from 'react'
+
 import styles from './form.module.css'
 
 export const Form = () => {
+  const [comments, setComments] = useState<Array<string>>([])
+  const [newComment, setNewComment] = useState('')
+
+
+
   const submitComment = () => {
-      const textarea = commentsBlock.querySelector('textarea');
-      const commentSection = document.getElementById('comment-section');
-      const newComment = document.createElement('p');
-      newComment.innerHTML = `<strong>Вы:</strong> ${textarea.value}`;
-      commentSection.appendChild(newComment);
-      textarea.value = ''; // Очистить текстовое поле
+    setComments([
+      ...comments,
+      newComment
+    ])
+
+    setNewComment('')
   }
 
   return (
@@ -30,9 +37,11 @@ export const Form = () => {
       </div>
       <div className={styles.comments}>
         <h2>Комментарии:</h2>
-        <textarea rows="4" cols="50" placeholder="Введите ваш ответ "></textarea><br/>
+        <textarea rows={4} cols={50} placeholder="Введите ваш ответ" value={newComment} onChange={e => setNewComment(e.target.value)} /><br/>
         <button onClick={submitComment}>Отправить</button>
-        <div class="comment-section" id="comment-section"></div>
+        {comments.map((comment, index) => (
+          <p key={index}><strong>Вы:</strong> {comment}</p>
+        ))}
       </div> 
       <div className={styles.banner}>
         Оставайтесь с нами!
