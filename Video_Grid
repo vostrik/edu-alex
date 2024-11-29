@@ -1,0 +1,63 @@
+// Интерфейс для видео
+interface Video {
+  title: string;
+  videoUrl: string; // Ссылка на видео
+  thumbnail: string; // Превью
+  description: string;
+}
+
+// Список с видео
+const videos: Video[] = [
+  {
+    title: "Why you should read every day",
+    videoUrl: "https://youtu.be/example1",
+    thumbnail: "https://via.placeholder.com/300x169", // Заменить на ссылку 
+    description: "Discover the benefits of daily reading in just 5 minutes.",
+  },
+  {
+    title: "The power of habits",
+    videoUrl: "https://youtu.be/link",// Заменить на ссылку
+    thumbnail: "https://via.placeholder.com/300x169",
+    description: "How habits shape your life and how to master them.",
+  },
+  {
+    title: "Understanding Climate Change",
+    videoUrl: "https://youtu.be/link",
+    thumbnail: "https://via.placeholder.com/300x169",
+    description: "An easy explanation of the pressing issues of climate change.",
+  },
+  {
+    title: "The Science of Motivation",
+    videoUrl: "https://youtu.be/link",// Заменить на ссылку
+    thumbnail: "https://via.placeholder.com/300x169",
+    description: "Learn the psychology behind what truly motivates us.",
+  },
+];
+
+// Функция для отображения видео
+function renderVideos(videoList: Video[]) {
+  const videoGrid = document.getElementById("video-grid");
+
+  if (!videoGrid) return;
+
+  videoList.forEach((video) => {
+    // Создаем карточку видео
+    const videoCard = document.createElement("div");
+    videoCard.className = "video-card";
+
+    videoCard.innerHTML = `
+      <img class="video-thumbnail" src="${video.thumbnail}" alt="${video.title}">
+      <div class="video-card-body">
+        <h3 class="video-title">${video.title}</h3>
+        <p class="video-description">${video.description}</p>
+        <a class="video-link" href="${video.videoUrl}" target="_blank">Watch on YouTube</a>
+      </div>
+    `;
+
+    // Добавление карточки в контейнер
+    videoGrid.appendChild(videoCard);
+  });
+}
+
+// Запуск рендера
+renderVideos(videos);
